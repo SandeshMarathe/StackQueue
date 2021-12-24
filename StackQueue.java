@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 class UserInputs {
     private static Scanner scanner = new Scanner(System.in);
     public static int intVal(){return scanner.nextInt();};
@@ -20,6 +21,7 @@ public class StackQueue {
                     stackQueueOperation.push(UserInputs.intVal());
                     break;
                 case 2:
+                    stackQueueOperation.pop();
                     break;
                 case 3:
                     break;
@@ -49,6 +51,13 @@ class StackQueueOperation {
         return false;
     }
 
+    public boolean isEmpty() {
+        if (top == -1) {
+            return true;
+        }
+        return false;
+    }
+
     public void push(int ele) {
         if (isFull()) {
             System.out.println("Stack is FULL..");
@@ -56,6 +65,16 @@ class StackQueueOperation {
         else {
             top++;
             myStack[top] = ele;
+        }
+    }
+
+    public void pop() {
+        if (isEmpty()) {
+            System.out.println("Stack is Empty..!");
+        }
+        else {
+            System.out.println("POP :"+top);
+            top--;
         }
     }
 
