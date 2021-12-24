@@ -27,6 +27,7 @@ public class StackQueue {
                     stackQueueOperation.enQueue(UserInputs.intVal());
                     break;
                 case 4:
+                    stackQueueOperation.deQueue();
                     break;
                 case 5:
                     stackQueueOperation.print();
@@ -97,6 +98,13 @@ class StackQueueOperation {
         return false;
     }
 
+    public boolean isQueueEmpty() {
+        if (front == -1) {
+            return true;
+        }
+        return false;
+    }
+
     public void enQueue(int ele) {
         if (isQueueFull()) {
             System.out.println("Stack Queue is Full..!");
@@ -110,6 +118,15 @@ class StackQueueOperation {
                 rear++;
             }
             myQueue[rear] = ele;
+        }
+    }
+
+    public void deQueue() {
+        if (isQueueEmpty()) {
+            System.out.println("Stack Queue is Empty..!");
+        }
+        else {
+            front++;
         }
     }
 
